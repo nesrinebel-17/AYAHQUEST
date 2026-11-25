@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#071511">
+<title>AYAHQUEST | Explore. Discover. Learn.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:wght@400;500;700;800&family=Noto+Naskh+Arabic:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <a href="#home" class="logo"><span class="logo-icon">☾</span>AYAH<span class="gold">QUEST</span></a>
+  <nav aria-label="Main">
+    <a href="#home" data-i18n="navHome"></a><a href="#missions" data-i18n="navChallenges"></a><a href="#library" data-i18n="navLibrary"></a><a href="#progress" data-i18n="navProgress"></a>
+  </nav>
+  <button class="lang" id="langBtn" type="button" aria-label="Language"></button>
+  <a href="#missions" class="nav-button" data-i18n="navStart"></a>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow" id="greet"></span>
+    <h1 data-i18n="heroTitle"></h1>
+    <p data-i18n="heroP"></p>
+    <div class="hero-actions">
+      <a href="#missions" class="btn primary" data-i18n="heroBtn1"></a>
+      <a href="#library" class="btn ghost" data-i18n="heroBtn2"></a>
+    </div>
+    <div class="hero-stats">
+      <div><strong id="hs1">114</strong><span data-i18n="statSurahs"></span></div>
+      <div><strong>∞</strong><span data-i18n="statDisc"></span></div>
+      <div><strong id="hs2">01</strong><span data-i18n="statJourney"></span></div>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="orbit o1"></div><div class="orbit o2"></div>
+    <div class="book"><div class="sym">۞</div><p>AYAHQUEST</p><small data-i18n="bookSub"></small></div>
+  </div>
+</section>
+
+<section class="section" id="missions">
+  <div class="section-heading">
+    <span class="eyebrow" data-i18n="chTag"></span>
+    <h2 data-i18n="chTitle"></h2>
+    <p data-i18n="chSub"></p>
+  </div>
+  <div id="daily" class="daily"></div>
+  <div class="cgrid" id="challenges">
+    <button class="card" onclick="startVerse()"><span class="ic">🔎</span><span class="no" data-i18n="c1Tag"></span><h3 data-i18n="c1T"></h3><p data-i18n="c1P"></p><span class="go" data-i18n="cGo"></span></button>
+    <button class="card" onclick="startWord()"><span class="ic">🧩</span><span class="no" data-i18n="c2Tag"></span><h3 data-i18n="c2T"></h3><p data-i18n="c2P"></p><span class="go" data-i18n="cGo"></span></button>
+    <button class="card" onclick="startKnowledge()"><span class="ic">📖</span><span class="no" data-i18n="c3Tag"></span><h3 data-i18n="c3T"></h3><p data-i18n="c3P"></p><span class="go" data-i18n="cGo"></span></button>
+    <button class="card" onclick="startReview()"><span class="ic">🔁</span><span class="no" data-i18n="c4Tag"></span><h3 data-i18n="c4T"></h3><p data-i18n="c4P"></p><span class="go" data-i18n="cGo"></span></button>
+    <button class="card" onclick="startTimed()"><span class="ic">⏱️</span><span class="no" data-i18n="c5Tag"></span><h3 data-i18n="c5T"></h3><p data-i18n="c5P"></p><span class="go" data-i18n="cGo"></span></button>
+    <button class="card" onclick="startOrder()"><span class="ic">🔢</span><span class="no" data-i18n="c6Tag"></span><h3 data-i18n="c6T"></h3><p data-i18n="c6P"></p><span class="go" data-i18n="cGo"></span></button>
+  </div>
+  <div id="game" hidden></div>
+</section>
+
+<section class="section" id="library">
+  <div class="section-heading">
+    <span class="eyebrow" data-i18n="libTag"></span>
+    <h2 data-i18n="libTitle"></h2>
+    <p data-i18n="libSub"></p>
+  </div>
+  <div id="lib"></div>
+</section>
+
+<section class="section" id="progress">
+  <div class="section-heading">
+    <span class="eyebrow" data-i18n="progTag"></span>
+    <h2 data-i18n="progTitle"></h2>
+    <p data-i18n="progSub"></p>
+  </div>
+  <div class="grid3">
+    <div class="pc"><span class="e">⭐</span><strong id="points">0</strong><p data-i18n="pcPoints"></p></div>
+    <div class="pc"><span class="e">🏆</span><strong id="level">1</strong><p data-i18n="pcLevel"></p></div>
+    <div class="pc"><span class="e">🎯</span><strong id="rounds">0</strong><p data-i18n="pcRounds"></p></div>
+    <div class="pc"><span class="e">🔥</span><strong id="streak">0</strong><p data-i18n="pcStreak"></p></div>
+  </div>
+  <div class="pct" id="pct"></div>
+  <h3 class="bh"><span data-i18n="badgesTitle"></span> <span id="bcount"></span></h3>
+  <div class="badges" id="badges"></div>
+  <div class="lvl">
+    <div id="lvltext"></div>
+    <div class="bar"><i id="lvlbar" style="width:0"></i></div>
+    <div class="row"><button class="btn primary" onclick="shareScore()" data-i18n="share"></button><button class="btn ghost" id="resetBtn" onclick="resetProgress()" data-i18n="reset"></button></div>
+  </div>
+</section>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<footer>
+  <div class="logo">☾ AYAH<span class="gold">QUEST</span></div>
+  <p data-i18n="footP"></p>
+  <small data-i18n="footSmall"></small>
+</footer>
+<script src="script.js" defer></script>
+</body>
+</html>
